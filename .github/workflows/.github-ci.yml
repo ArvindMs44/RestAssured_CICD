@@ -28,24 +28,27 @@ jobs:
           path: target/surefire-reports  # Adjust path based on your Maven configuration
 
   test-windows:
-    runs-on: windows-latest
+      runs-on: windows-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
 
-      - name: Install Maven
-        run: |
-          choco install -y maven
+        - name: Install Maven
+          run: |
+            choco install -y maven
 
-      - name: Build and Test with Maven
-        run: mvn clean test
+        - name: Verify Maven Installation
+          run: mvn -version
 
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-windows
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
+        - name: Build and Test with Maven
+          run: mvn clean test
+
+        - name: Upload Test Results
+          uses: actions/upload-artifact@v2
+          with:
+            name: test-results-windows
+            path: target/surefire-reports  # Adjust path based on your Maven configuration
 
   test-macos:
     runs-on: macos-latest
