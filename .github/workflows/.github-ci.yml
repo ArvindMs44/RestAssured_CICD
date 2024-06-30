@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '55 19 * * *'
 
 jobs:
   test-ubuntu-chrome:
@@ -147,7 +149,7 @@ jobs:
         - name: Set up JDK 11 and Maven
           uses: actions/setup-java@v2
           with:
-            java-version: '11'  # Ensure JDK 11 is specified here
+            java-version: '11'
             distribution: 'adopt'
 
         - name: Install Maven
@@ -174,8 +176,8 @@ jobs:
       - name: Set up JDK 11 and Maven
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Ensure JDK 11 is specified here
-          distribution: 'adopt'  # Specify the distribution here, for example 'adopt', 'adopt-openj9', 'temurin', etc.
+          java-version: '11'
+          distribution: 'adopt'
 
       - name: Install Maven
         run: |
@@ -204,8 +206,8 @@ jobs:
       - name: Set up JDK 11 and Maven
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Ensure JDK 11 is specified here
-          distribution: 'adopt'  # Specify the distribution here, for example 'adopt', 'adopt-openj9', 'temurin', etc.
+          java-version: '11'
+          distribution: 'adopt'
 
       - name: Install Maven
         run: |
