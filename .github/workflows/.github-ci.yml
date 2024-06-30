@@ -14,11 +14,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11 and Maven
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Set up Maven
+        run: |
+          sudo apt-get install -y maven
 
       - name: Build and Test with Maven
         run: mvn clean test
@@ -36,11 +39,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11 and Maven
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Set up Maven
+        run: |
+          choco install -y maven
 
       - name: Build and Test with Maven
         run: mvn clean test
@@ -58,11 +64,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11 and Maven
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Set up Maven
+        run: |
+          brew install maven
 
       - name: Build and Test with Maven
         run: mvn clean test
