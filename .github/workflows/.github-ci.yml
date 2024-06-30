@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '55 19 * * *'
+    - cron: '05 20 * * *'
 
 jobs:
   test-ubuntu-chrome:
