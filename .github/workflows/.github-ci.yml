@@ -216,7 +216,10 @@ jobs:
 
       - name: Set up Firefox WebDriver
         run: |
-          choco install -y geckodriver
+          # Download geckodriver
+          Invoke-WebRequest -Uri "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip" -OutFile geckodriver.zip
+          Expand-Archive geckodriver.zip -DestinationPath $env:ProgramFiles\geckodriver
+          $env:Path += ";$env:ProgramFiles\geckodriver"
 
       - name: Build and Test with Maven - Firefox
         run: mvn clean test -Dbrowser=firefox
