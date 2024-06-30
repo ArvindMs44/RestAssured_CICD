@@ -1,0 +1,74 @@
+name: Rest Assured Java Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11 and Maven
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Build and Test with Maven
+        run: mvn clean test
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results-ubuntu
+          path: target/surefire-reports  # Adjust path based on your Maven configuration
+
+  test-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11 and Maven
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Build and Test with Maven
+        run: mvn clean test
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results-windows
+          path: target/surefire-reports  # Adjust path based on your Maven configuration
+
+  test-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11 and Maven
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          maven-version: '3.8.3'  # Adjust version as needed
+
+      - name: Build and Test with Maven
+        run: mvn clean test
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results-macos
+          path: target/surefire-reports  # Adjust path based on your Maven configuration
