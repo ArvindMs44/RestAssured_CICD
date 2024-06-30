@@ -32,12 +32,6 @@ jobs:
       - name: Build and Test with Maven - Chrome
         run: mvn clean test -Dbrowser=chrome
 
-      - name: Upload Test Results - Chrome
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-chrome
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
-
   test-ubuntu-firefox:
     runs-on: ubuntu-latest
 
@@ -63,12 +57,6 @@ jobs:
       - name: Build and Test with Maven - Firefox
         run: mvn clean test -Dbrowser=firefox
 
-      - name: Upload Test Results - Firefox
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-firefox
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
-
   test-ubuntu-edge:
     runs-on: ubuntu-latest
 
@@ -90,12 +78,6 @@ jobs:
       - name: Build and Test with Maven - Edge
         run: mvn clean test -Dbrowser=edge
 
-      - name: Upload Test Results - Edge
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-edge
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
-
   test-macos-chrome:
     runs-on: macos-latest
 
@@ -115,12 +97,6 @@ jobs:
 
       - name: Build and Test with Maven - Chrome
         run: mvn clean test -Dbrowser=chrome
-
-      - name: Upload Test Results - Chrome
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-chrome
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
 
   test-macos-firefox:
     runs-on: macos-latest
@@ -142,12 +118,6 @@ jobs:
       - name: Build and Test with Maven - Firefox
         run: mvn clean test -Dbrowser=firefox
 
-      - name: Upload Test Results - Firefox
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-firefox
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
-
   test-macos-edge:
     runs-on: macos-latest
 
@@ -166,12 +136,6 @@ jobs:
 
       - name: Build and Test with Maven - Edge
         run: mvn clean test -Dbrowser=edge
-
-      - name: Upload Test Results - Edge
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-edge
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
 
   test-windows-chrome:
       runs-on: windows-latest
@@ -199,12 +163,6 @@ jobs:
 
         - name: Build and Test with Maven - Chrome
           run: mvn clean test -Dbrowser=chrome
-
-        - name: Upload Test Results - Chrome
-          uses: actions/upload-artifact@v2
-          with:
-            name: test-results-chrome
-            path: target/surefire-reports  # Adjust path based on your Maven configu
 
   test-windows-firefox:
     runs-on: windows-latest
@@ -236,12 +194,6 @@ jobs:
       - name: Build and Test with Maven - Firefox
         run: mvn clean test -Dbrowser=firefox
 
-      - name: Upload Test Results - Firefox
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-firefox
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
-
   test-windows-edge:
     runs-on: windows-latest
 
@@ -268,9 +220,3 @@ jobs:
 
       - name: Build and Test with Maven - Edge
         run: mvn clean test -Dbrowser=edge
-
-      - name: Upload Test Results - Edge
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results-edge
-          path: target/surefire-reports  # Adjust path based on your Maven configuration
