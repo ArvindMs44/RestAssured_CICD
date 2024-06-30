@@ -184,7 +184,7 @@ jobs:
           uses: actions/setup-java@v2
           with:
             java-version: '11'  # Ensure JDK 11 is specified here
-          distribution: 'adopt'  # Specify the distribution here, for example 'adopt', 'adopt-openj9', 'temurin', etc.
+          distribution: 'adopt'
 
         - name: Install Maven
           run: |
