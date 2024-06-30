@@ -25,7 +25,9 @@ jobs:
       - name: Set up Chrome WebDriver
         run: |
           sudo apt-get install -y chromium-chromedriver
-          sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          if [ ! -f /usr/bin/chromedriver ]; then
+            sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          fi
 
       - name: Build and Test with Maven - Chrome
         run: mvn clean test -Dbrowser=chrome
@@ -53,7 +55,10 @@ jobs:
 
       - name: Set up Firefox WebDriver
         run: |
-          sudo apt-get install -y firefox-geckodriver
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
+          tar -xzf geckodriver-v0.30.0-linux64.tar.gz
+          chmod +x geckodriver
+          sudo mv geckodriver /usr/local/bin/
 
       - name: Build and Test with Maven - Firefox
         run: mvn clean test -Dbrowser=firefox
