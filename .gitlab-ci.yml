@@ -1,0 +1,12 @@
+image: maven:latest  # Use the official Maven Docker image
+
+stages:
+  - test
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"  # Customize Maven repository location
+
+test_rest_assured:
+  stage: test
+  script:
+    - mvn clean test
